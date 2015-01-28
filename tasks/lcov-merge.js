@@ -8,10 +8,10 @@
 'use strict';
 
 module.exports = function(grunt) {
-  var done = this.async();
-  var lcovMerger = require('./lib/lcov-result-merger').init(grunt);
-  grunt.registerMultiTask('lcov-merge', 'Merge lcov files with lcov-result-merger.', function() {
-    var options = this.option({
+  var lcovMerger = require('./lib/lcov-merge').init(grunt);
+  grunt.registerMultiTask('lcovMerge', 'Merge lcov files using the lcov-result-merger tool.', function() {
+    var done = this.async();
+    var options = this.options({
       emitters: ['file'],
       outputFile: 'coverage/lcov-merge.info'
     });
@@ -20,9 +20,14 @@ module.exports = function(grunt) {
       grunt.fail.warn('No emitters defined.');
     }
 
-    grunt.verbose.write('Merging lcov files...');
-    lcovMerger.merge(this.filesSrc, options, function() {
-      grunt.log.ok(this.filesSrc.length + ' ' + grunt.util.pluralize(this.filesSrc.length,'file/files') + ' merged.');
+    var filesSrc = this.filesSrc;
+    if (filesSrc.length === 0) {
+      grunt.fail.warn('No files specified');
+    }
+    
+    grunt.verbose.writeln('Merging lcov files...');
+    lcovMerger.merge(filesSrc, options, function() {
+      grunt.log.ok(filesSrc.length + ' ' + grunt.util.pluralize(filesSrc.length,'file/files') + ' merged.');
       done();
     });
   });

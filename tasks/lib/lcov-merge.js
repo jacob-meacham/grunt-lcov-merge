@@ -9,7 +9,6 @@
 
 var vfs = require('vinyl-fs'),
   through = require('through2'),
-  fs = require('fs'),
   chalk = require('chalk'),
   lcovResultMerger = require('lcov-result-merger');
 
@@ -18,13 +17,12 @@ exports.init = function(grunt) {
 
   var emitFile = function(file, options, done) {
     try {
-     fs.writeFileSync(options.outputFile, file.contents);
+     grunt.file.write(options.outputFile, file.contents);
      grunt.verbose.writeln('Output generated in ' + chalk.cyan(options.outputFile) + '.');
      done();
     } catch (err) {
       grunt.log.warn('Writing output to ' + chalk.cyan(options.outputFile) + ' failed.');
       grunt.fail.warn(err);
-      done();
     }
   };
 
@@ -44,8 +42,8 @@ exports.init = function(grunt) {
       .pipe(through.obj(function (file) {
         // Remove dupes
         var emitter_set = {};
-        for (var e in options.emitters) {
-          emitter_set[e] = true;
+        for (var i in options.emitters) {
+          emitter_set[options.emitters[i]] = true;
         }
 
         for (var emitter in emitter_set) {
@@ -57,4 +55,6 @@ exports.init = function(grunt) {
         }
       }));
   };
+
+  return exports;
 };
