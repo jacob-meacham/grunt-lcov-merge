@@ -28,9 +28,12 @@ exports.init = function(grunt) {
   };
 
   var emitEvent = function(file, options, done) {
-    return grunt.event.emit('coverage', file.contents, function() {
+    return grunt.event.emit('coverage', file.contents.toString(), function(err) {
       grunt.verbose.writeln('Coverage event emitted');
-      done();
+      if (err) {
+        grunt.log.warn('Coverage event listener failed.');
+      }
+      done(err);
     });
   };
 

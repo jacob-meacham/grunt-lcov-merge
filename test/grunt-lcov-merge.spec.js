@@ -53,6 +53,17 @@ describe('grunt-lcov-merge', function() {
     });
   });
 
+  it('should fail if the event emit fails', function(done) {
+    grunt.event.once('coverage', function(file, callback) {
+      callback('Error');
+    });
+
+    lcovMerge.merge(['lcov.info'], {emitters: ['event']}, function(results, err) {
+      expect(err).to.exist();
+      done();
+    });
+  });
+
   it('should not fail if an emitter is unknown', function(done) {
     var warnSpy = sandbox.spy(grunt.log, 'warn');
     var eventSpy = sandbox.spy(eventCallback);
