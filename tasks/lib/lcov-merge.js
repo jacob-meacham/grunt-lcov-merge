@@ -10,6 +10,7 @@
 var vfs = require('vinyl-fs'),
   through = require('through2'),
   chalk = require('chalk'),
+  async = require('async'),
   lcovResultMerger = require('lcov-result-merger');
 
 exports.init = function(grunt) {
@@ -22,15 +23,29 @@ exports.init = function(grunt) {
      done();
     } catch (err) {
       grunt.log.warn('Writing output to ' + chalk.cyan(options.outputFile) + ' failed.');
-      grunt.fail.warn(err);
+      done(err);
     }
   };
 
   var emitEvent = function(file, options, done) {
-    grunt.event.emit('coverage', file.contents, function(d) {
-      grunt.log.ok('Coverage event emitted');
-      done(d);
+    return grunt.event.emit('coverage', file.contents, function() {
+      grunt.verbose.writeln('Coverage event emitted');
+      done();
     });
+  };
+
+  var toSet = function(arr) {
+    var objectSet = {};
+    for (var i in arr) {
+      objectSet[arr[i]] = true;
+    }
+
+    var set = [];
+    for (var val in objectSet) {
+      set.push(val);
+    }
+
+    return set;
   };
 
   var emitters = {'file': emitFile, 'event': emitEvent};
@@ -41,18 +56,21 @@ exports.init = function(grunt) {
       .pipe(lcovResultMerger())
       .pipe(through.obj(function (file) {
         // Remove dupes
-        var emitter_set = {};
-        for (var i in options.emitters) {
-          emitter_set[options.emitters[i]] = true;
+        var emitterSet = toSet(options.emitters);
+        if (emitterSet.length === 0) {
+          return done(null, 'No emitters specified');
         }
 
-        for (var emitter in emitter_set) {
+        async.each(emitterSet, function(emitter, callback) {
           if (emitters[emitter]) {
-            emitters[emitter](file, options, done);
+            emitters[emitter](file, options, callback);
           } else {
-            grunt.fail.warn('Emitter ' + emitter + ' not known.');
+            grunt.log.warn('Emitter ' + emitter + ' not known. Skipping');
+            callback();
           }
-        }
+        }, function(err) {
+          done(null, err);
+        });
       }));
   };
 

@@ -26,7 +26,15 @@ module.exports = function(grunt) {
     }
     
     grunt.verbose.writeln('Merging lcov files...');
-    lcovMerger.merge(filesSrc, options, function() {
+    lcovMerger.merge(filesSrc, options, function(results, err) {
+      if (err) {
+        grunt.fail.warn(err);
+      }
+
+      if (results) {
+        grunt.verbose.writeln(results);
+      }
+      
       grunt.log.ok(filesSrc.length + ' ' + grunt.util.pluralize(filesSrc.length,'file/files') + ' merged.');
       done();
     });
