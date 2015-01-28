@@ -26,6 +26,10 @@
       "url": "https://github.com/jacob-meacham/grunt-lcov-merge/blob/master/LICENSE"
     }
   ],
+  "files": [
+    "tasks",
+    "LICENSE"
+  ],
   "readme": " ",
   "readmeFilename": "README.md",
   "engines": {
