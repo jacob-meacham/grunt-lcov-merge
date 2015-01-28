@@ -1,0 +1,47 @@
+{
+  "name": "grunt-lcov-merger",
+  "description": "Merge lcov files from multiple test runs.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jacob-meacham/grunt-lcov-merger",
+  "author": {
+    "name": "jemonjam",
+    "url": "http://jemonjam.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jacob-meacham/grunt-lcov-merger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jacob-meacham/grunt-lcov-merger/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jacob-meacham/grunt-lcov-merger/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.2",
+    "grunt-contrib-jshint": "^0.10.0",
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "files": [
+    "tasks",
+    "LICENSE-MIT"
+  ]
+}
