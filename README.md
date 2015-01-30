@@ -1,9 +1,9 @@
 # grunt-lcov-merge 
-[![Build Status](https://travis-ci.org/jacob-meacham/grunt-lcov-merge.svg?branch=develop)](https://travis-ci.org/jacob-meacham/grunt-lcov-merge)
+[![Build Status](https://travis-ci.org/jacob-meacham/grunt-lcov-merge.svg?branch=master)](https://travis-ci.org/jacob-meacham/grunt-lcov-merge)
 [![npm version](https://badge.fury.io/js/grunt-lcov-merge.svg)](http://badge.fury.io/js/grunt-lcov-merge)
-[![Coverage Status](https://coveralls.io/repos/jacob-meacham/grunt-lcov-merge/badge.svg?branch=develop)](https://coveralls.io/r/jacob-meacham/grunt-lcov-merge?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/jacob-meacham/grunt-lcov-merge/badge.svg?branch=master)](https://coveralls.io/r/jacob-meacham/grunt-lcov-merge?branch=master)
 [![Code Climate](https://codeclimate.com/github/jacob-meacham/grunt-lcov-merge/badges/gpa.svg)](https://codeclimate.com/github/jacob-meacham/grunt-lcov-merge)
-[![Dependency Status](https://www.versioneye.com/user/projects/54cbfc3cde7924f81a0001e4/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54cbfc3cde7924f81a0001e4)
+[![Dependency Status](https://www.versioneye.com/user/projects/54cbfc42de7924b7ed000243/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54cbfc42de7924b7ed000243)
 
 > Grunt plugin to merge lcov files from multiple test runs, for use with a tool like [coveralls](coveralls.io).
 
