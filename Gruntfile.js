@@ -30,18 +30,23 @@ module.exports = function(grunt) {
 
     lcovMerge: {
       options: {
-          emitters: ['event']
+          emitters: ['file', 'event'],
+          outputFile: 'out.lcov'
       },
       files: ['build/coverage/*.info', 'build/coverage/**/*.info']
     }
   });
 
   grunt.event.on('coverage', function(lcov, done) {
+    // Coveralls uses argv to set the basePath
+    var oldArgv = process.argv[2];
+    process.argv[2] = '';
     require('coveralls').handleInput(lcov, function(err) {
-        if (err) {
-          return done(err);
-        }
-        done();
+      process.argv[2] = oldArgv;
+      if (err) {
+        return done(err);
+      }
+      done();
     });
   });
 
