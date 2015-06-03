@@ -35,7 +35,7 @@ Default: `['file']`
 What emitters to send the merged data to. Supported emitters are 'file', which sends the merged data to a file, and 'event', which sends it out to the 'coverage' event and can be listened to with 
 
 ```js
-grunt.event.on('coverage', fucntion(lcov, done) {});
+grunt.event.on('coverage', function(lcov, done) {});
 ```
 
 #### outputFile
@@ -48,7 +48,7 @@ If a file emitter is specified, this is the output file to pipe data to.
 ```js
     grunt.initConfig({
     jshint: {
-        files: ['Gruntfile.js', 'tasks/**/*.js', 'test/**/*.js'],
+        src: ['Gruntfile.js', 'tasks/**/*.js', 'test/**/*.js'],
         options: {
             jshintrc: true
         }
@@ -69,7 +69,7 @@ If a file emitter is specified, this is the output file to pipe data to.
           emitters: ['event', 'file'],
           outputFile: 'mergeLcov.info'
       },
-      files: ['build/coverage/*.info', 'build/coverage/**/*.info']
+      src: ['build/coverage/*.info', 'build/coverage/**/*.info']
     }
   });
 
@@ -80,6 +80,8 @@ If a file emitter is specified, this is the output file to pipe data to.
 
   grunt.loadNpmTasks('grunt-lcov-merge');
 ```
+
+Note that grunt-lcov-merge allows for source files to be specified via any [file format](http://gruntjs.com/configuring-tasks#files).
 
 ## Event emitter
 One of the most useful ways to consume this plugin is to use the coverage event to send the lcov data to a service like coveralls:
