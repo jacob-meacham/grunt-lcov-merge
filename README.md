@@ -1,7 +1,7 @@
 # grunt-lcov-merge 
-[![Build Status](https://travis-ci.org/jacob-meacham/grunt-lcov-merge.svg?branch=develop)](https://travis-ci.org/jacob-meacham/grunt-lcov-merge)
+[![Build Status](https://travis-ci.org/jacob-meacham/grunt-lcov-merge.svg?branch=master)](https://travis-ci.org/jacob-meacham/grunt-lcov-merge)
 [![npm version](https://badge.fury.io/js/grunt-lcov-merge.svg)](http://badge.fury.io/js/grunt-lcov-merge)
-[![Coverage Status](https://coveralls.io/repos/jacob-meacham/grunt-lcov-merge/badge.svg?branch=develop)](https://coveralls.io/r/jacob-meacham/grunt-lcov-merge?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/jacob-meacham/grunt-lcov-merge/badge.svg?branch=master)](https://coveralls.io/r/jacob-meacham/grunt-lcov-merge?branch=master)
 [![Code Climate](https://codeclimate.com/github/jacob-meacham/grunt-lcov-merge/badges/gpa.svg)](https://codeclimate.com/github/jacob-meacham/grunt-lcov-merge)
 [![Dependency Status](https://www.versioneye.com/user/projects/54cbfc3cde7924f81a0001e4/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54cbfc3cde7924f81a0001e4)
 
@@ -97,3 +97,10 @@ grunt.event.on('coverage', function(lcov, done) {
 ```
 
 Using the coveralls module means that Travis-CI can automatically send your merged LCOV to coveralls.
+
+## Version History
+* 0.1.0 - Initial version
+* 0.1.1 - Trim down the number of files in the distribution
+* 0.1.2. - Update dependencies, work around coveralls issue.
+* 0.1.3 - Documentation updates
+* 1.0.0 - Official release
