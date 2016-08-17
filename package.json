@@ -1,7 +1,7 @@
 {
   "name": "grunt-lcov-merge",
   "description": "Grunt plugin to merge lcov files from multiple test runs.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "keywords": [
     "gruntplugin",
     "lcov",

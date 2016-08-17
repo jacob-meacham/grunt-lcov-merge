@@ -108,3 +108,4 @@ Using the coveralls module means that Travis-CI can automatically send your merg
 * 1.2.0 - Update dependencies
 * 1.2.1 - Fix incorrect npm version
 * 1.2.2 - Fix issues with test code on travis
+* 1.2.3 - ACTUALLY Fix issues with test code on travis (aren't immutable versions fun??)
