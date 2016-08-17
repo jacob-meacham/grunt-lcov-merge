@@ -8,7 +8,7 @@
 'use strict';
 
 var vfs = require('vinyl-fs');
-var through = require('through2-filter');
+var through = require('through2');
 var chalk = require('chalk');
 var async = require('async');
 var lcovResultMerger = require('lcov-result-merger');
