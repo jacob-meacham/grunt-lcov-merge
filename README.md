@@ -8,7 +8,7 @@
 > Grunt plugin to merge lcov files from multiple test runs, for use with a tool like [coveralls](coveralls.io).
 
 ## Getting Started
-This plugin requires Grunt `0.4.0`
+This plugin works with any grunt `>=0.4.0`
 
 To install, add grunt-lcov-merge to your package.json. The easiest way to do that is
 
@@ -101,6 +101,8 @@ Using the coveralls module means that Travis-CI can automatically send your merg
 ## Version History
 * 0.1.0 - Initial version
 * 0.1.1 - Trim down the number of files in the distribution
-* 0.1.2. - Update dependencies, work around coveralls issue.
+* 0.1.2 - Update dependencies, work around coveralls issue.
 * 0.1.3 - Documentation updates
 * 1.0.0 - Official release
+* 1.1.0 - Support Grunt >1.0
+* 1.2.0 - Update dependencies
