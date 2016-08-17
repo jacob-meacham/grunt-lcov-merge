@@ -2,7 +2,7 @@
  * grunt-lcov-merger
  * http://jemonjam.com/
  *
- * Copyright (c) 2015 Jacob Meacham
+ * Copyright (c) 2015-Present Jacob Meacham
  * Licensed under the MIT license.
 */
 'use strict';
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     if (filesSrc.length === 0) {
       grunt.fail.warn('No files specified');
     }
-    
+
     grunt.verbose.writeln('Merging lcov files...');
     lcovMerger.merge(filesSrc, options, function(results, err) {
       if (err) {
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
       if (results) {
         grunt.verbose.writeln(results);
       }
-      
+
       grunt.log.ok(filesSrc.length + ' ' + grunt.util.pluralize(filesSrc.length,'file/files') + ' merged.');
       done();
     });
