@@ -2,16 +2,16 @@
  * grunt-lcov-merger
  * http://jemonjam.com/
  *
- * Copyright (c) 2015 Jacob Meacham
+ * Copyright (c) 2015-Present Jacob Meacham
  * Licensed under the MIT license.
 */
 'use strict';
 
-var vfs = require('vinyl-fs'),
-  through = require('through2'),
-  chalk = require('chalk'),
-  async = require('async'),
-  lcovResultMerger = require('lcov-result-merger');
+var vfs = require('vinyl-fs');
+var through = require('through2-filter');
+var chalk = require('chalk');
+var async = require('async');
+var lcovResultMerger = require('lcov-result-merger');
 
 exports.init = function(grunt) {
   var exports = {};
