@@ -1,3 +1,5 @@
 node_modules/
 build/
 fileeditor
+out.lcov
+npm-debug.log
