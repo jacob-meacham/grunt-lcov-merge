@@ -70,7 +70,7 @@ describe('grunt-lcov-merge', function() {
     var eventSpy = sandbox.spy(eventCallback);
     grunt.event.once('coverage', eventSpy);
 
-    lcovMerge.merge(['lcov.info'], {emitters: ['event', 'foo']}, function(results, err) {
+    lcovMerge.merge(['test/lcov.info'], {emitters: ['event', 'foo']}, function(results, err) {
       expect(err).to.not.exist;
       warnSpy.should.have.callCount(1);
       eventSpy.should.have.callCount(1);
@@ -82,7 +82,7 @@ describe('grunt-lcov-merge', function() {
     var eventSpy = sandbox.spy(eventCallback);
     grunt.event.once('coverage', eventSpy);
 
-    lcovMerge.merge(['lcov.info'], {emitters: ['event', 'event']}, function(results, err) {
+    lcovMerge.merge(['test/lcov.info'], {emitters: ['event', 'event']}, function(results, err) {
       expect(err).to.not.exist;
       eventSpy.should.have.callCount(1);
       done();
@@ -95,7 +95,7 @@ describe('grunt-lcov-merge', function() {
 
     var writeStub = sandbox.stub(grunt.file, 'write');
 
-    lcovMerge.merge(['lcov.info'], {emitters: ['file', 'event'], outputFile: 'test/result/merge.info'}, function(results, err) {
+    lcovMerge.merge(['test/lcov.info'], {emitters: ['file', 'event'], outputFile: 'test/result/merge.info'}, function(results, err) {
       expect(err).to.not.exist;
       writeStub.should.have.callCount(1);
       writeStub.should.have.been.calledWith('test/result/merge.info');
@@ -106,7 +106,7 @@ describe('grunt-lcov-merge', function() {
   });
 
   it('should error when no output file is present', function(done) {
-    lcovMerge.merge(['lcov.info'], {emitters: ['file']}, function(results, err) {
+    lcovMerge.merge(['test/lcov.info'], {emitters: ['file']}, function(results, err) {
       expect(err).to.exist;
       done();
     });
