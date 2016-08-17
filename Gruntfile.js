@@ -1,23 +1,17 @@
-/*
- * grunt-contrib-jshint
- * http://gruntjs.com/
- *
- * Copyright (c) 2015 "Cowboy" Ben Alman, contributors
- * Licensed under the MIT license.
- */
-
 'use strict';
 
 module.exports = function(grunt) {
 
   grunt.initConfig({
     jshint: {
-        files: ['Gruntfile.js', 'tasks/**/*.js', 'test/**/*.js'],
+        files: {
+            src: ['Gruntfile.js', 'tasks/**/*.js', 'test/**/*.js'],
+        },
         options: {
             jshintrc: true
         }
     },
-    
+
     mocha_istanbul: {
       coverage: {
           src: 'test/**/*.spec.js',
