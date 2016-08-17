@@ -104,5 +104,7 @@ Using the coveralls module means that Travis-CI can automatically send your merg
 * 0.1.2 - Update dependencies, work around coveralls issue.
 * 0.1.3 - Documentation updates
 * 1.0.0 - Official release
-* 1.1.0 - Support Grunt >1.0
+* 1.1.0 - Support Grunt >=1.0
 * 1.2.0 - Update dependencies
+* 1.2.1 - Fix incorrect npm version
+* 1.2.2 - Fix issues with test code on travis
